@@ -59,7 +59,8 @@ class _HomePageState extends State<HomePage> {
   void onScroll() {
     final offset = scrollController.offset;
     final maxScroll = scrollController.position.maxScrollExtent;
-    if (offset >= maxScroll - MediaQuery.of(context).size.height && !isLoading) {
+    if (offset >= maxScroll - MediaQuery.of(context).size.height &&
+        !isLoading) {
       _getMovies();
     }
   }
@@ -86,7 +87,8 @@ class _HomePageState extends State<HomePage> {
               controller: scrollController,
               slivers: <Widget>[
                 SliverList(
-                  delegate: SliverChildBuilderDelegate(childCount: _movies.length, (context, index) {
+                  delegate: SliverChildBuilderDelegate(
+                      childCount: _movies.length, (context, index) {
                     return Row(
                       children: [
                         Image.network(
