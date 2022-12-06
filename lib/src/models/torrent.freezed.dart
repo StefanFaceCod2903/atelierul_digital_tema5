@@ -31,15 +31,13 @@ mixin _$Torrent {
 
 /// @nodoc
 abstract class $TorrentCopyWith<$Res> {
-  factory $TorrentCopyWith(Torrent value, $Res Function(Torrent) then) =
-      _$TorrentCopyWithImpl<$Res, Torrent>;
+  factory $TorrentCopyWith(Torrent value, $Res Function(Torrent) then) = _$TorrentCopyWithImpl<$Res, Torrent>;
   @useResult
   $Res call({String url, String hash, String quality});
 }
 
 /// @nodoc
-class _$TorrentCopyWithImpl<$Res, $Val extends Torrent>
-    implements $TorrentCopyWith<$Res> {
+class _$TorrentCopyWithImpl<$Res, $Val extends Torrent> implements $TorrentCopyWith<$Res> {
   _$TorrentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -73,20 +71,16 @@ class _$TorrentCopyWithImpl<$Res, $Val extends Torrent>
 
 /// @nodoc
 abstract class _$$Torrent$CopyWith<$Res> implements $TorrentCopyWith<$Res> {
-  factory _$$Torrent$CopyWith(
-          _$Torrent$ value, $Res Function(_$Torrent$) then) =
-      __$$Torrent$CopyWithImpl<$Res>;
+  factory _$$Torrent$CopyWith(_$Torrent$ value, $Res Function(_$Torrent$) then) = __$$Torrent$CopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String url, String hash, String quality});
 }
 
 /// @nodoc
-class __$$Torrent$CopyWithImpl<$Res>
-    extends _$TorrentCopyWithImpl<$Res, _$Torrent$>
+class __$$Torrent$CopyWithImpl<$Res> extends _$TorrentCopyWithImpl<$Res, _$Torrent$>
     implements _$$Torrent$CopyWith<$Res> {
-  __$$Torrent$CopyWithImpl(_$Torrent$ _value, $Res Function(_$Torrent$) _then)
-      : super(_value, _then);
+  __$$Torrent$CopyWithImpl(_$Torrent$ _value, $Res Function(_$Torrent$) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -115,11 +109,9 @@ class __$$Torrent$CopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$Torrent$ implements Torrent$ {
-  const _$Torrent$(
-      {required this.url, required this.hash, required this.quality});
+  const _$Torrent$({required this.url, required this.hash, required this.quality});
 
-  factory _$Torrent$.fromJson(Map<String, dynamic> json) =>
-      _$$Torrent$FromJson(json);
+  factory _$Torrent$.fromJson(Map<String, dynamic> json) => _$$Torrent$FromJson(json);
 
   @override
   final String url;
@@ -150,8 +142,7 @@ class _$Torrent$ implements Torrent$ {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$Torrent$CopyWith<_$Torrent$> get copyWith =>
-      __$$Torrent$CopyWithImpl<_$Torrent$>(this, _$identity);
+  _$$Torrent$CopyWith<_$Torrent$> get copyWith => __$$Torrent$CopyWithImpl<_$Torrent$>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -162,10 +153,8 @@ class _$Torrent$ implements Torrent$ {
 }
 
 abstract class Torrent$ implements Torrent {
-  const factory Torrent$(
-      {required final String url,
-      required final String hash,
-      required final String quality}) = _$Torrent$;
+  const factory Torrent$({required final String url, required final String hash, required final String quality}) =
+      _$Torrent$;
 
   factory Torrent$.fromJson(Map<String, dynamic> json) = _$Torrent$.fromJson;
 
@@ -177,6 +166,5 @@ abstract class Torrent$ implements Torrent {
   String get quality;
   @override
   @JsonKey(ignore: true)
-  _$$Torrent$CopyWith<_$Torrent$> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$Torrent$CopyWith<_$Torrent$> get copyWith => throw _privateConstructorUsedError;
 }
