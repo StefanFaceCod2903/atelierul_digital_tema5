@@ -10,8 +10,8 @@ class Movie with _$Movie {
     required String title,
     required int year,
     required double rating,
-    @JsonKey(name: "description_full") required String descriptionFull,
-    @JsonKey(name: "medium_cover_image") required String image,
+    @JsonKey(name: 'description_full') required String descriptionFull,
+    @JsonKey(name: 'medium_cover_image') required String image,
     required List<Torrent> torrents,
   }) = Movie$;
 
