@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:atelierul_digital_tema5/src/models/movie.dart';
 import 'package:http/http.dart';

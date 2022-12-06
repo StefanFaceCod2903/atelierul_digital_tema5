@@ -1,4 +1,4 @@
-import 'package:atelierul_digital_tema5/data/MovieApi.dart';
+import 'package:atelierul_digital_tema5/data/movie_api.dart';
 import 'package:atelierul_digital_tema5/src/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
