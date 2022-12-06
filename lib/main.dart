@@ -1,5 +1,5 @@
-import 'dart:convert';
-
+import 'package:atelierul_digital_tema5/data/MovieApi.dart';
+import 'package:atelierul_digital_tema5/src/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -8,27 +8,25 @@ void main() {
   runApp(const MyApp());
 }
 
-///
 class MyApp extends StatelessWidget {
-  ///
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tema 5 simpla',
+      title: 'Tema 6',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{'movieDetails': (BuildContext context) => const MovieDetails()},
       home: const HomePage(),
     );
   }
 }
 
-///
 class HomePage extends StatefulWidget {
-  ///
   const HomePage({super.key});
 
   @override
@@ -36,31 +34,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final scrollController = ScrollController();
-  final List<Movie> _movies = [];
+  final ScrollController _scrollController = ScrollController();
+  List<Movie> _movies = <Movie>[];
   int _currentPage = 1;
-  bool isLoading = true;
+  bool _isLoading = true;
   Future<void> _getMovies() async {
-    isLoading = true;
-    final url = 'https://yts.mx/api/v2/list_movies.json/?page=$_currentPage';
-    final response = await get(Uri.parse(url));
-    final body = jsonDecode(response.body) as Map<String, dynamic>;
-    final data = body['data'] as Map<String, dynamic>;
-    final moviesMap = data['movies'] as List<dynamic>;
-    for (final item in moviesMap) {
-      _movies.add(Movie.fromJson(item as Map<String, dynamic>));
-    }
+    final Client client = Client();
+    final MovieApi movieApi = MovieApi(client);
+    _movies = await movieApi.getMovies(_currentPage);
     setState(() {
-      isLoading = false;
+      _isLoading = false;
       _currentPage++;
     });
   }
 
   void onScroll() {
-    final offset = scrollController.offset;
-    final maxScroll = scrollController.position.maxScrollExtent;
-    if (offset >= maxScroll - MediaQuery.of(context).size.height &&
-        !isLoading) {
+    final double offset = _scrollController.offset;
+    final double maxScroll = _scrollController.position.maxScrollExtent;
+    if (offset >= maxScroll - MediaQuery.of(context).size.height && !_isLoading) {
       _getMovies();
     }
   }
@@ -69,47 +60,39 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _getMovies();
-    scrollController.addListener(onScroll);
+    _scrollController.addListener(onScroll);
   }
 
   @override
   void dispose() {
     super.dispose();
-    scrollController.dispose();
+    _scrollController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Infinite Movies!')),
-      body: isLoading == false
+      body: _isLoading == false
           ? CustomScrollView(
-              controller: scrollController,
+              controller: _scrollController,
               slivers: <Widget>[
                 SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      childCount: _movies.length, (context, index) {
-                    return Row(
-                      children: [
-                        Image.network(
-                          _movies[index].image,
-                          scale: 2,
-                        ),
-                        Expanded(
-                          child: Text(
-                            _movies[index].title,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                          ),
-                        ),
-                      ],
+                  delegate: SliverChildBuilderDelegate(childCount: _movies.length, (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, 'movieDetails', arguments: _movies[index]);
+                      },
+                      child: Image.network(
+                        _movies[index].image,
+                      ),
                     );
                   }),
                 ),
                 SliverToBoxAdapter(
                   child: Builder(
                     builder: (BuildContext context) {
-                      if (isLoading) {
+                      if (_isLoading) {
                         return Center(
                           child: LoadingAnimationWidget.staggeredDotsWave(
                             color: Colors.blue,
@@ -137,23 +120,22 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-///This class is used as a model for parsing json
-class Movie {
-  ///
-  Movie(this.title, this.image, this.year);
+class MovieDetails extends StatelessWidget {
+  const MovieDetails({super.key});
 
-  ///this is a constructor that converts a map to movie object
-  Movie.fromJson(Map<String, dynamic> json)
-      : title = json['title'] as String,
-        image = json['medium_cover_image'] as String,
-        year = json['year'] as int;
-
-  ///
-  final String title;
-
-  ///
-  final String image;
-
-  ///
-  final int year;
+  @override
+  Widget build(BuildContext context) {
+    final Movie movie = ModalRoute.of(context)!.settings.arguments! as Movie;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(movie.title),
+      ),
+      body: Column(
+        children: <Widget>[
+          Title(color: Colors.red, child: Text(movie.torrents[0].quality)),
+          Text(movie.descriptionFull),
+        ],
+      ),
+    );
+  }
 }
