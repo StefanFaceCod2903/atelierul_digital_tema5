@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'torrent.freezed.dart';
-part 'torrent.g.dart';
+part 'index.dart';
 
 @freezed
 class Torrent with _$Torrent {

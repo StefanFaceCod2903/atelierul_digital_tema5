@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:atelierul_digital_tema5/src/models/movie.dart';
+import 'package:atelierul_digital_tema5/src/models/index.dart';
 import 'package:http/http.dart';
 
 class MovieApi {

@@ -1,8 +1,4 @@
-import 'package:atelierul_digital_tema5/src/models/torrent.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'movie.freezed.dart';
-part 'movie.g.dart';
+part 'index.dart';
 
 @freezed
 class Movie with _$Movie {
