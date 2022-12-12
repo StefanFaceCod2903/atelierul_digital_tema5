@@ -1,4 +1,4 @@
-part 'index.dart';
+part of 'index.dart';
 
 @freezed
 class Torrent with _$Torrent {
@@ -8,5 +8,6 @@ class Torrent with _$Torrent {
     required String quality,
   }) = Torrent$;
 
-  factory Torrent.fromJson(Map<dynamic, dynamic> json) => _$TorrentFromJson(Map<String, dynamic>.from(json));
+  factory Torrent.fromJson(Map<dynamic, dynamic> json) =>
+      _$TorrentFromJson(Map<String, dynamic>.from(json));
 }
