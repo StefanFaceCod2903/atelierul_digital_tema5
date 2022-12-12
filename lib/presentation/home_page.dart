@@ -21,15 +21,18 @@ class HomePage extends StatelessWidget {
               ? CustomScrollView(
                   slivers: <Widget>[
                     SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                          childCount: store.state.movies.length,
+                      delegate: SliverChildBuilderDelegate(childCount: store.state.movies.length,
                           (BuildContext context, int index) {
                         return GestureDetector(
                           onTap: () {
                             store.dispatch(
-                                SetSelectedMovie(store.state.movies[index]),);
-                            Navigator.pushNamed(context, 'movieDetails',
-                                arguments: store.state.selectedMovie,);
+                              SetSelectedMovie(store.state.movies[index]),
+                            );
+                            Navigator.pushNamed(
+                              context,
+                              'movieDetails',
+                              arguments: store.state.selectedMovie,
+                            );
                           },
                           child: Image.network(
                             store.state.movies[index].image,

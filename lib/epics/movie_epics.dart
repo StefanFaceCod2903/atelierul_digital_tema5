@@ -16,12 +16,16 @@ class AppEpics {
   }
 
   Stream<dynamic> _getMovieStart(
-      Stream<GetMovieStart> actions, EpicStore<AppState> store,) {
+    Stream<GetMovieStart> actions,
+    EpicStore<AppState> store,
+  ) {
     return actions
         .asyncMap(
-            (GetMovieStart action) => _api.getMovies(store.state.currentPage),)
+          (GetMovieStart action) => _api.getMovies(store.state.currentPage),
+        )
         .map((List<Movie> movies) => GetMovie.successful(movies))
-        .onErrorReturnWith((Object error, StackTrace stackTrace) =>
-            GetMovieError(error, stackTrace),);
+        .onErrorReturnWith(
+          (Object error, StackTrace stackTrace) => GetMovieError(error, stackTrace),
+        );
   }
 }
