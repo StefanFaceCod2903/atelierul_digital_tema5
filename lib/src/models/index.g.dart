@@ -13,7 +13,7 @@ _$Movie$ _$$Movie$FromJson(Map<String, dynamic> json) => _$Movie$(
       descriptionFull: json['description_full'] as String,
       image: json['medium_cover_image'] as String,
       torrents: (json['torrents'] as List<dynamic>)
-          .map((e) => Torrent.fromJson(e as Map<String, dynamic>))
+          .map((dynamic e) => Torrent.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -41,7 +41,7 @@ Map<String, dynamic> _$$Torrent$ToJson(_$Torrent$ instance) =>
 
 _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
       movies: (json['movies'] as List<dynamic>?)
-              ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
+              ?.map((dynamic e) => Movie.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <Movie>[],
       isLoading: json['isLoading'] as bool? ?? true,
