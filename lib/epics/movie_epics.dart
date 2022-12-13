@@ -25,8 +25,7 @@ class AppEpics {
         )
         .map((List<Movie> movies) => GetMovies.successful(movies))
         .onErrorReturnWith(
-          (Object error, StackTrace stackTrace) =>
-              GetMoviesError(error, stackTrace),
+          (Object error, StackTrace stackTrace) => GetMoviesError(error, stackTrace),
         );
   }
 }

@@ -44,9 +44,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         initialRoute: '/',
-        routes: <String, WidgetBuilder>{
-          'movieDetails': (BuildContext context) => const MovieDetails()
-        },
+        routes: <String, WidgetBuilder>{'movieDetails': (BuildContext context) => const MovieDetails()},
         home: const HomePage(),
       ),
     );

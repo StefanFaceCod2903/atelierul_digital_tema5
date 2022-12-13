@@ -64,13 +64,11 @@ mixin _$GetMovies {
 
 /// @nodoc
 abstract class $GetMoviesCopyWith<$Res> {
-  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) =
-      _$GetMoviesCopyWithImpl<$Res, GetMovies>;
+  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) = _$GetMoviesCopyWithImpl<$Res, GetMovies>;
 }
 
 /// @nodoc
-class _$GetMoviesCopyWithImpl<$Res, $Val extends GetMovies>
-    implements $GetMoviesCopyWith<$Res> {
+class _$GetMoviesCopyWithImpl<$Res, $Val extends GetMovies> implements $GetMoviesCopyWith<$Res> {
   _$GetMoviesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -81,18 +79,14 @@ class _$GetMoviesCopyWithImpl<$Res, $Val extends GetMovies>
 
 /// @nodoc
 abstract class _$$GetMoviesStartCopyWith<$Res> {
-  factory _$$GetMoviesStartCopyWith(
-          _$GetMoviesStart value, $Res Function(_$GetMoviesStart) then) =
+  factory _$$GetMoviesStartCopyWith(_$GetMoviesStart value, $Res Function(_$GetMoviesStart) then) =
       __$$GetMoviesStartCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetMoviesStartCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesStart>
+class __$$GetMoviesStartCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesStart>
     implements _$$GetMoviesStartCopyWith<$Res> {
-  __$$GetMoviesStartCopyWithImpl(
-      _$GetMoviesStart _value, $Res Function(_$GetMoviesStart) _then)
-      : super(_value, _then);
+  __$$GetMoviesStartCopyWithImpl(_$GetMoviesStart _value, $Res Function(_$GetMoviesStart) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -107,8 +101,7 @@ class _$GetMoviesStart implements GetMoviesStart {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetMoviesStart);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$GetMoviesStart);
   }
 
   @override
@@ -189,19 +182,16 @@ abstract class GetMoviesStart implements GetMovies {
 
 /// @nodoc
 abstract class _$$GetMoviesSuccessfulCopyWith<$Res> {
-  factory _$$GetMoviesSuccessfulCopyWith(_$GetMoviesSuccessful value,
-          $Res Function(_$GetMoviesSuccessful) then) =
+  factory _$$GetMoviesSuccessfulCopyWith(_$GetMoviesSuccessful value, $Res Function(_$GetMoviesSuccessful) then) =
       __$$GetMoviesSuccessfulCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Movie> movies});
 }
 
 /// @nodoc
-class __$$GetMoviesSuccessfulCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesSuccessful>
+class __$$GetMoviesSuccessfulCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesSuccessful>
     implements _$$GetMoviesSuccessfulCopyWith<$Res> {
-  __$$GetMoviesSuccessfulCopyWithImpl(
-      _$GetMoviesSuccessful _value, $Res Function(_$GetMoviesSuccessful) _then)
+  __$$GetMoviesSuccessfulCopyWithImpl(_$GetMoviesSuccessful _value, $Res Function(_$GetMoviesSuccessful) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,15 +235,13 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith =>
-      __$$GetMoviesSuccessfulCopyWithImpl<_$GetMoviesSuccessful>(
-          this, _$identity);
+      __$$GetMoviesSuccessfulCopyWithImpl<_$GetMoviesSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -325,31 +313,25 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
 }
 
 abstract class GetMoviesSuccessful implements GetMovies {
-  const factory GetMoviesSuccessful(final List<Movie> movies) =
-      _$GetMoviesSuccessful;
+  const factory GetMoviesSuccessful(final List<Movie> movies) = _$GetMoviesSuccessful;
 
   List<Movie> get movies;
   @JsonKey(ignore: true)
-  _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetMoviesErrorCopyWith<$Res> {
-  factory _$$GetMoviesErrorCopyWith(
-          _$GetMoviesError value, $Res Function(_$GetMoviesError) then) =
+  factory _$$GetMoviesErrorCopyWith(_$GetMoviesError value, $Res Function(_$GetMoviesError) then) =
       __$$GetMoviesErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$GetMoviesErrorCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesError>
+class __$$GetMoviesErrorCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesError>
     implements _$$GetMoviesErrorCopyWith<$Res> {
-  __$$GetMoviesErrorCopyWithImpl(
-      _$GetMoviesError _value, $Res Function(_$GetMoviesError) _then)
-      : super(_value, _then);
+  __$$GetMoviesErrorCopyWithImpl(_$GetMoviesError _value, $Res Function(_$GetMoviesError) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -388,13 +370,11 @@ class _$GetMoviesError implements GetMoviesError {
         (other.runtimeType == runtimeType &&
             other is _$GetMoviesError &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
@@ -472,14 +452,12 @@ class _$GetMoviesError implements GetMoviesError {
 }
 
 abstract class GetMoviesError implements GetMovies {
-  const factory GetMoviesError(
-      final Object error, final StackTrace stackTrace) = _$GetMoviesError;
+  const factory GetMoviesError(final Object error, final StackTrace stackTrace) = _$GetMoviesError;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$GetMoviesErrorCopyWith<_$GetMoviesError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetMoviesErrorCopyWith<_$GetMoviesError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -487,14 +465,12 @@ mixin _$SetSelectedMovie {
   Movie get movie => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetSelectedMovieCopyWith<SetSelectedMovie> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SetSelectedMovieCopyWith<SetSelectedMovie> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetSelectedMovieCopyWith<$Res> {
-  factory $SetSelectedMovieCopyWith(
-          SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
+  factory $SetSelectedMovieCopyWith(SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
       _$SetSelectedMovieCopyWithImpl<$Res, SetSelectedMovie>;
   @useResult
   $Res call({Movie movie});
@@ -503,8 +479,7 @@ abstract class $SetSelectedMovieCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie>
-    implements $SetSelectedMovieCopyWith<$Res> {
+class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie> implements $SetSelectedMovieCopyWith<$Res> {
   _$SetSelectedMovieCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -535,10 +510,8 @@ class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie>
 }
 
 /// @nodoc
-abstract class _$$SetSelectedMovieStartCopyWith<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
-  factory _$$SetSelectedMovieStartCopyWith(_$SetSelectedMovieStart value,
-          $Res Function(_$SetSelectedMovieStart) then) =
+abstract class _$$SetSelectedMovieStartCopyWith<$Res> implements $SetSelectedMovieCopyWith<$Res> {
+  factory _$$SetSelectedMovieStartCopyWith(_$SetSelectedMovieStart value, $Res Function(_$SetSelectedMovieStart) then) =
       __$$SetSelectedMovieStartCopyWithImpl<$Res>;
   @override
   @useResult
@@ -549,11 +522,9 @@ abstract class _$$SetSelectedMovieStartCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetSelectedMovieStartCopyWithImpl<$Res>
-    extends _$SetSelectedMovieCopyWithImpl<$Res, _$SetSelectedMovieStart>
+class __$$SetSelectedMovieStartCopyWithImpl<$Res> extends _$SetSelectedMovieCopyWithImpl<$Res, _$SetSelectedMovieStart>
     implements _$$SetSelectedMovieStartCopyWith<$Res> {
-  __$$SetSelectedMovieStartCopyWithImpl(_$SetSelectedMovieStart _value,
-      $Res Function(_$SetSelectedMovieStart) _then)
+  __$$SetSelectedMovieStartCopyWithImpl(_$SetSelectedMovieStart _value, $Res Function(_$SetSelectedMovieStart) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -598,20 +569,17 @@ class _$SetSelectedMovieStart implements SetSelectedMovieStart {
   @override
   @pragma('vm:prefer-inline')
   _$$SetSelectedMovieStartCopyWith<_$SetSelectedMovieStart> get copyWith =>
-      __$$SetSelectedMovieStartCopyWithImpl<_$SetSelectedMovieStart>(
-          this, _$identity);
+      __$$SetSelectedMovieStartCopyWithImpl<_$SetSelectedMovieStart>(this, _$identity);
 }
 
 abstract class SetSelectedMovieStart implements SetSelectedMovie {
-  const factory SetSelectedMovieStart(final Movie movie) =
-      _$SetSelectedMovieStart;
+  const factory SetSelectedMovieStart(final Movie movie) = _$SetSelectedMovieStart;
 
   @override
   Movie get movie;
   @override
   @JsonKey(ignore: true)
-  _$$SetSelectedMovieStartCopyWith<_$SetSelectedMovieStart> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetSelectedMovieStartCopyWith<_$SetSelectedMovieStart> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -619,22 +587,19 @@ mixin _$SetCurrentPage {
   int get newPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetCurrentPageCopyWith<SetCurrentPage> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SetCurrentPageCopyWith<SetCurrentPage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetCurrentPageCopyWith<$Res> {
-  factory $SetCurrentPageCopyWith(
-          SetCurrentPage value, $Res Function(SetCurrentPage) then) =
+  factory $SetCurrentPageCopyWith(SetCurrentPage value, $Res Function(SetCurrentPage) then) =
       _$SetCurrentPageCopyWithImpl<$Res, SetCurrentPage>;
   @useResult
   $Res call({int newPage});
 }
 
 /// @nodoc
-class _$SetCurrentPageCopyWithImpl<$Res, $Val extends SetCurrentPage>
-    implements $SetCurrentPageCopyWith<$Res> {
+class _$SetCurrentPageCopyWithImpl<$Res, $Val extends SetCurrentPage> implements $SetCurrentPageCopyWith<$Res> {
   _$SetCurrentPageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -657,10 +622,8 @@ class _$SetCurrentPageCopyWithImpl<$Res, $Val extends SetCurrentPage>
 }
 
 /// @nodoc
-abstract class _$$SetCurrentPageStartCopyWith<$Res>
-    implements $SetCurrentPageCopyWith<$Res> {
-  factory _$$SetCurrentPageStartCopyWith(_$SetCurrentPageStart value,
-          $Res Function(_$SetCurrentPageStart) then) =
+abstract class _$$SetCurrentPageStartCopyWith<$Res> implements $SetCurrentPageCopyWith<$Res> {
+  factory _$$SetCurrentPageStartCopyWith(_$SetCurrentPageStart value, $Res Function(_$SetCurrentPageStart) then) =
       __$$SetCurrentPageStartCopyWithImpl<$Res>;
   @override
   @useResult
@@ -668,11 +631,9 @@ abstract class _$$SetCurrentPageStartCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetCurrentPageStartCopyWithImpl<$Res>
-    extends _$SetCurrentPageCopyWithImpl<$Res, _$SetCurrentPageStart>
+class __$$SetCurrentPageStartCopyWithImpl<$Res> extends _$SetCurrentPageCopyWithImpl<$Res, _$SetCurrentPageStart>
     implements _$$SetCurrentPageStartCopyWith<$Res> {
-  __$$SetCurrentPageStartCopyWithImpl(
-      _$SetCurrentPageStart _value, $Res Function(_$SetCurrentPageStart) _then)
+  __$$SetCurrentPageStartCopyWithImpl(_$SetCurrentPageStart _value, $Res Function(_$SetCurrentPageStart) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -717,8 +678,7 @@ class _$SetCurrentPageStart implements SetCurrentPageStart {
   @override
   @pragma('vm:prefer-inline')
   _$$SetCurrentPageStartCopyWith<_$SetCurrentPageStart> get copyWith =>
-      __$$SetCurrentPageStartCopyWithImpl<_$SetCurrentPageStart>(
-          this, _$identity);
+      __$$SetCurrentPageStartCopyWithImpl<_$SetCurrentPageStart>(this, _$identity);
 }
 
 abstract class SetCurrentPageStart implements SetCurrentPage {
@@ -728,6 +688,5 @@ abstract class SetCurrentPageStart implements SetCurrentPage {
   int get newPage;
   @override
   @JsonKey(ignore: true)
-  _$$SetCurrentPageStartCopyWith<_$SetCurrentPageStart> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetCurrentPageStartCopyWith<_$SetCurrentPageStart> get copyWith => throw _privateConstructorUsedError;
 }

@@ -45,17 +45,14 @@ class _HomePageState extends State<HomePage> {
                 ..dispatch(const SetCurrentPage(1))
                 ..dispatch(const GetMovies());
 
-              await store.onChange
-                  .where((AppState state) => !state.isLoading)
-                  .first;
+              await store.onChange.where((AppState state) => !state.isLoading).first;
             },
             child: !store.state.isLoading
                 ? CustomScrollView(
                     controller: _scrollController,
                     slivers: <Widget>[
                       SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                            childCount: store.state.movies.length,
+                        delegate: SliverChildBuilderDelegate(childCount: store.state.movies.length,
                             (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
