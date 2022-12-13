@@ -11,21 +11,22 @@ class AppEpics {
 
   Epic<AppState> get epic {
     return combineEpics(<Epic<AppState>>[
-      TypedEpic<AppState, GetMovieStart>(_getMovieStart),
+      TypedEpic<AppState, GetMoviesStart>(_getMoviesStart),
     ]);
   }
 
-  Stream<dynamic> _getMovieStart(
-    Stream<GetMovieStart> actions,
+  Stream<dynamic> _getMoviesStart(
+    Stream<GetMoviesStart> actions,
     EpicStore<AppState> store,
   ) {
     return actions
         .asyncMap(
-          (GetMovieStart action) => _api.getMovies(store.state.currentPage),
+          (GetMoviesStart action) => _api.getMovies(store.state.currentPage),
         )
-        .map((List<Movie> movies) => GetMovie.successful(movies))
+        .map((List<Movie> movies) => GetMovies.successful(movies))
         .onErrorReturnWith(
-          (Object error, StackTrace stackTrace) => GetMovieError(error, stackTrace),
+          (Object error, StackTrace stackTrace) =>
+              GetMoviesError(error, stackTrace),
         );
   }
 }

@@ -21,7 +21,7 @@ void main() {
     middleware: <Middleware<AppState>>[
       EpicMiddleware<AppState>(epics.epic),
     ],
-  )..dispatch(const GetMovie());
+  )..dispatch(const GetMovies());
   runApp(
     MyApp(
       store: store,
@@ -44,7 +44,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         initialRoute: '/',
-        routes: <String, WidgetBuilder>{'movieDetails': (BuildContext context) => const MovieDetails()},
+        routes: <String, WidgetBuilder>{
+          'movieDetails': (BuildContext context) => const MovieDetails()
+        },
         home: const HomePage(),
       ),
     );

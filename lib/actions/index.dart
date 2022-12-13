@@ -4,3 +4,4 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'get_movies.dart';
 part 'index.freezed.dart';
 part 'set_selected_movie.dart';
+part 'set_current_page.dart';

@@ -9,5 +9,6 @@ class AppState with _$AppState {
     Movie? selectedMovie,
   }) = AppState$;
 
-  factory AppState.fromJson(Map<dynamic, dynamic> json) => _$AppStateFromJson(Map<String, dynamic>.from(json));
+  factory AppState.fromJson(Map<dynamic, dynamic> json) =>
+      _$AppStateFromJson(Map<String, dynamic>.from(json));
 }

@@ -1,10 +1,11 @@
 part of 'index.dart';
 
 @freezed
-class GetMovie with _$GetMovie {
-  const factory GetMovie() = GetMovieStart;
+class GetMovies with _$GetMovies {
+  const factory GetMovies() = GetMoviesStart;
 
-  const factory GetMovie.successful(List<Movie> movies) = GetMovieSuccesful;
+  const factory GetMovies.successful(List<Movie> movies) = GetMoviesSuccessful;
 
-  const factory GetMovie.error(Object error, StackTrace stackTrace) = GetMovieError;
+  const factory GetMovies.error(Object error, StackTrace stackTrace) =
+      GetMoviesError;
 }

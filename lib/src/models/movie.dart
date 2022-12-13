@@ -11,5 +11,6 @@ class Movie with _$Movie {
     required List<Torrent> torrents,
   }) = Movie$;
 
-  factory Movie.fromJson(Map<dynamic, dynamic> json) => _$MovieFromJson(Map<String, dynamic>.from(json));
+  factory Movie.fromJson(Map<dynamic, dynamic> json) =>
+      _$MovieFromJson(Map<String, dynamic>.from(json));
 }

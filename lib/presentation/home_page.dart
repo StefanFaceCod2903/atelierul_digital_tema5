@@ -5,8 +5,30 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:redux/redux.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    final Store<AppState> store = StoreProvider.of<AppState>(context);
+    final double offset = _scrollController.position.pixels;
+    final double maxScrollExtent = _scrollController.position.maxScrollExtent;
+    if (offset > maxScrollExtent - MediaQuery.of(context).size.height) {
+      store.dispatch(const GetMovies());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,58 +39,58 @@ class HomePage extends StatelessWidget {
       builder: (BuildContext context, AppState state) {
         return Scaffold(
           appBar: AppBar(title: const Text('Infinite Movies!')),
-          body: !store.state.isLoading
-              ? CustomScrollView(
-                  slivers: <Widget>[
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(childCount: store.state.movies.length,
-                          (BuildContext context, int index) {
-                        return GestureDetector(
-                          onTap: () {
-                            store.dispatch(
-                              SetSelectedMovie(store.state.movies[index]),
-                            );
-                            Navigator.pushNamed(
-                              context,
-                              'movieDetails',
-                              arguments: store.state.selectedMovie,
+          body: RefreshIndicator(
+            onRefresh: () async {
+              store
+                ..dispatch(const SetCurrentPage(1))
+                ..dispatch(const GetMovies());
+
+              await store.onChange
+                  .where((AppState state) => !state.isLoading)
+                  .first;
+            },
+            child: !store.state.isLoading
+                ? CustomScrollView(
+                    controller: _scrollController,
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                            childCount: store.state.movies.length,
+                            (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              store.dispatch(
+                                SetSelectedMovie(store.state.movies[index]),
+                              );
+                              Navigator.pushNamed(
+                                context,
+                                'movieDetails',
+                                arguments: store.state.selectedMovie,
+                              );
+                            },
+                            child: Image.network(
+                              store.state.movies[index].image,
+                            ),
+                          );
+                        }),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Builder(
+                          builder: (BuildContext context) {
+                            return LoadingAnimationWidget.staggeredDotsWave(
+                              color: Colors.blue,
+                              size: 50,
                             );
                           },
-                          child: Image.network(
-                            store.state.movies[index].image,
-                          ),
-                        );
-                      }),
-                    ),
-                    SliverToBoxAdapter(
-                      child: Builder(
-                        builder: (BuildContext context) {
-                          if (store.state.isLoading) {
-                            return Center(
-                              child: LoadingAnimationWidget.staggeredDotsWave(
-                                color: Colors.blue,
-                                size: 50,
-                              ),
-                            );
-                          } else {
-                            return TextButton(
-                              child: const Text('Load More'),
-                              onPressed: () {
-                                store.dispatch(const GetMovie());
-                              },
-                            );
-                          }
-                        },
-                      ),
-                    )
-                  ],
-                )
-              : Center(
-                  child: LoadingAnimationWidget.staggeredDotsWave(
+                        ),
+                      )
+                    ],
+                  )
+                : LoadingAnimationWidget.staggeredDotsWave(
                     color: Colors.blue,
                     size: 50,
                   ),
-                ),
+          ),
         );
       },
     );
